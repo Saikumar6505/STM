@@ -1,0 +1,10 @@
+15:09:54 **** Build of configuration Debug for project keypad_interrupt ****
+make -j8 all 
+arm-none-eabi-size  keypad_interrupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+  12580	    116	   1988	  14684	   395c	keypad_interrupt.elf
+Finished building: default.size.stdout
+ 
+
+15:09:56 Build Finished. 0 errors, 0 warnings. (took 1s.777ms)
+

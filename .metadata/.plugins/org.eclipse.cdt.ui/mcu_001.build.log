@@ -1,0 +1,10 @@
+12:23:44 **** Incremental Build of configuration Debug for project mcu_001 ****
+make -j8 all 
+arm-none-eabi-size  mcu_001.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3340	     92	   1900	   5332	   14d4	mcu_001.elf
+Finished building: default.size.stdout
+ 
+
+12:23:45 Build Finished. 0 errors, 0 warnings. (took 627ms)
+

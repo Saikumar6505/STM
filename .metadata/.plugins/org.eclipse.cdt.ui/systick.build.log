@@ -1,0 +1,10 @@
+15:10:27 **** Build of configuration Debug for project systick ****
+make -j8 all 
+arm-none-eabi-size  systick.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8196	     12	   1644	   9852	   267c	systick.elf
+Finished building: default.size.stdout
+ 
+
+15:10:29 Build Finished. 0 errors, 0 warnings. (took 2s.11ms)
+

@@ -1,0 +1,10 @@
+15:09:08 **** Build of configuration Debug for project _FREERTOS_ ****
+make -j8 all 
+arm-none-eabi-size  _FREERTOS_.elf 
+   text	   data	    bss	    dec	    hex	filename
+  31964	    480	  18712	  51156	   c7d4	_FREERTOS_.elf
+Finished building: default.size.stdout
+ 
+
+15:09:11 Build Finished. 0 errors, 0 warnings. (took 2s.671ms)
+

@@ -1,0 +1,10 @@
+15:09:03 **** Build of configuration Debug for project Temperature_WE10 ****
+make -j8 all 
+arm-none-eabi-size  Temperature_WE10.elf 
+   text	   data	    bss	    dec	    hex	filename
+  44772	    480	  18720	  63972	   f9e4	Temperature_WE10.elf
+Finished building: default.size.stdout
+ 
+
+15:09:05 Build Finished. 0 errors, 0 warnings. (took 2s.208ms)
+

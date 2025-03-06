@@ -1,0 +1,10 @@
+15:08:56 **** Build of configuration Debug for project LCD_4-bit ****
+make -j8 all 
+arm-none-eabi-size  LCD_4-bit.elf 
+   text	   data	    bss	    dec	    hex	filename
+   1336	      4	   1572	   2912	    b60	LCD_4-bit.elf
+Finished building: default.size.stdout
+ 
+
+15:08:58 Build Finished. 0 errors, 0 warnings. (took 2s.39ms)
+

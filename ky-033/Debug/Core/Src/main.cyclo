@@ -1,0 +1,8 @@
+../Core/Src/main.c:63:6:Debug_Print	1
+../Core/Src/main.c:68:6:Debug_Print_PinState	2
+../Core/Src/main.c:85:5:main	3
+../Core/Src/main.c:151:6:SystemClock_Config	3
+../Core/Src/main.c:198:13:MX_ADC1_Init	3
+../Core/Src/main.c:250:13:MX_USART2_UART_Init	2
+../Core/Src/main.c:283:13:MX_GPIO_Init	1
+../Core/Src/main.c:335:6:Error_Handler	1

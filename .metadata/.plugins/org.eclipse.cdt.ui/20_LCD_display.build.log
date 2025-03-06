@@ -1,0 +1,10 @@
+15:08:19 **** Build of configuration Debug for project 20_LCD_display ****
+make -j8 all 
+arm-none-eabi-size  20_LCD_display.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7724	     20	   1644	   9388	   24ac	20_LCD_display.elf
+Finished building: default.size.stdout
+ 
+
+15:08:22 Build Finished. 0 errors, 0 warnings. (took 2s.660ms)
+

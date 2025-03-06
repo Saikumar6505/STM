@@ -1,0 +1,10 @@
+15:10:43 **** Build of configuration Debug for project uart_interupt ****
+make -j8 all 
+arm-none-eabi-size  uart_interupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10596	     12	   1644	  12252	   2fdc	uart_interupt.elf
+Finished building: default.size.stdout
+ 
+
+15:10:45 Build Finished. 0 errors, 0 warnings. (took 2s.596ms)
+

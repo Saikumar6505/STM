@@ -1,0 +1,5 @@
+../Core/Src/main.c:44:5:main	8	static
+../Core/Src/main.c:54:6:init	4	static
+../Core/Src/main.c:72:6:keypad_svnseg_interfacing	16	static
+../Core/Src/main.c:100:6:turn_on_svnseg	16	static
+../Core/Src/main.c:134:6:delay	16	static

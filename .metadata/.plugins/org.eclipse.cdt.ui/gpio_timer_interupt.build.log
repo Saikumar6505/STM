@@ -1,0 +1,10 @@
+15:09:39 **** Build of configuration Debug for project gpio_timer_interupt ****
+make -j8 all 
+arm-none-eabi-size  gpio_timer_interupt.elf 
+   text	   data	    bss	    dec	    hex	filename
+  10400	     12	   1716	  12128	   2f60	gpio_timer_interupt.elf
+Finished building: default.size.stdout
+ 
+
+15:09:41 Build Finished. 0 errors, 0 warnings. (took 1s.973ms)
+

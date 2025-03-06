@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;systick/Core/Src/systick&apos; to &apos;systick.h&apos;" description="Rename resource &apos;systick&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/systick" name="systick.h" stamp="1722578984269" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;systick/Core/Src/systick.h&apos; to &apos;systick.c&apos;" description="Rename resource &apos;systick.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Src/systick.h" name="systick.c" stamp="1722579093996" updateReferences="true"/>
+</session>

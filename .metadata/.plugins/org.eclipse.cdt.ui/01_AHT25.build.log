@@ -1,0 +1,86 @@
+16:41:23 **** Incremental Build of configuration Debug for project 01_AHT25 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'read_sensor_values':
+../Core/Src/main.c:40:39: error: 'hi2c1' undeclared (first use in this function)
+   40 |     status = HAL_I2C_Master_Transmit(&hi2c1, AHT25_ADDR, &cmd, 1, HAL_MAX_DELAY);
+      |                                       ^~~~~
+../Core/Src/main.c:40:39: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:43:28: error: 'huart2' undeclared (first use in this function)
+   43 |         HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), UART_TIMEOUT);
+      |                            ^~~~~~
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:72:5: warning: implicit declaration of function 'SystemClock_Config'; did you mean 'SysTick_Config'? [-Wimplicit-function-declaration]
+   72 |     SystemClock_Config();
+      |     ^~~~~~~~~~~~~~~~~~
+      |     SysTick_Config
+../Core/Src/main.c:73:5: warning: implicit declaration of function 'MX_GPIO_Init'; did you mean 'HAL_GPIO_Init'? [-Wimplicit-function-declaration]
+   73 |     MX_GPIO_Init();
+      |     ^~~~~~~~~~~~
+      |     HAL_GPIO_Init
+../Core/Src/main.c:74:5: warning: implicit declaration of function 'MX_I2C1_Init'; did you mean 'HAL_I2C_Init'? [-Wimplicit-function-declaration]
+   74 |     MX_I2C1_Init();
+      |     ^~~~~~~~~~~~
+      |     HAL_I2C_Init
+../Core/Src/main.c:75:5: warning: implicit declaration of function 'MX_USART2_UART_Init' [-Wimplicit-function-declaration]
+   75 |     MX_USART2_UART_Init();
+      |     ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:78:24: error: 'huart2' undeclared (first use in this function)
+   78 |     HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), UART_TIMEOUT);
+      |                        ^~~~~~
+../Core/Src/main.c: In function 'AHT25_reset':
+../Core/Src/main.c:90:30: error: 'hi2c1' undeclared (first use in this function)
+   90 |     HAL_I2C_Master_Transmit(&hi2c1, AHT25_ADDR, &reset, 1, 50);
+      |                              ^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:98:6: warning: conflicting types for 'SystemClock_Config'; have 'void(void)'
+   98 | void SystemClock_Config(void)
+      |      ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:72:5: note: previous implicit declaration of 'SystemClock_Config' with type 'void(void)'
+   72 |     SystemClock_Config();
+      |     ^~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:140:13: warning: conflicting types for 'MX_I2C1_Init'; have 'void(void)'
+  140 | static void MX_I2C1_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:140:13: error: static declaration of 'MX_I2C1_Init' follows non-static declaration
+../Core/Src/main.c:74:5: note: previous implicit declaration of 'MX_I2C1_Init' with type 'void(void)'
+   74 |     MX_I2C1_Init();
+      |     ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'MX_I2C1_Init':
+../Core/Src/main.c:150:3: error: 'hi2c1' undeclared (first use in this function)
+  150 |   hi2c1.Instance = I2C1;
+      |   ^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:174:13: warning: conflicting types for 'MX_USART2_UART_Init'; have 'void(void)'
+  174 | static void MX_USART2_UART_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:174:13: error: static declaration of 'MX_USART2_UART_Init' follows non-static declaration
+../Core/Src/main.c:75:5: note: previous implicit declaration of 'MX_USART2_UART_Init' with type 'void(void)'
+   75 |     MX_USART2_UART_Init();
+      |     ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'MX_USART2_UART_Init':
+../Core/Src/main.c:184:3: error: 'huart2' undeclared (first use in this function)
+  184 |   huart2.Instance = USART2;
+      |   ^~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:207:13: warning: conflicting types for 'MX_GPIO_Init'; have 'void(void)'
+  207 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:207:13: error: static declaration of 'MX_GPIO_Init' follows non-static declaration
+../Core/Src/main.c:73:5: note: previous implicit declaration of 'MX_GPIO_Init' with type 'void(void)'
+   73 |     MX_GPIO_Init();
+      |     ^~~~~~~~~~~~
+../Core/Src/main.c:207:13: warning: 'MX_GPIO_Init' defined but not used [-Wunused-function]
+  207 | static void MX_GPIO_Init(void)
+      |             ^~~~~~~~~~~~
+../Core/Src/main.c:174:13: warning: 'MX_USART2_UART_Init' defined but not used [-Wunused-function]
+  174 | static void MX_USART2_UART_Init(void)
+      |             ^~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:140:13: warning: 'MX_I2C1_Init' defined but not used [-Wunused-function]
+  140 | static void MX_I2C1_Init(void)
+      |             ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+16:41:24 Build Failed. 10 errors, 11 warnings. (took 1s.669ms)
+

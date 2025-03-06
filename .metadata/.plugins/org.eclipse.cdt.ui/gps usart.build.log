@@ -1,0 +1,10 @@
+15:09:41 **** Build of configuration Debug for project gps usart ****
+make -j8 all 
+arm-none-eabi-size  gps\ usart.elf 
+   text	   data	    bss	    dec	    hex	filename
+  33700	    468	   1980	  36148	   8d34	gps usart.elf
+Finished building: default.size.stdout
+ 
+
+15:09:43 Build Finished. 0 errors, 0 warnings. (took 1s.818ms)
+

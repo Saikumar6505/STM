@@ -1,0 +1,41 @@
+14:11:33 **** Incremental Build of configuration Debug for project rc522 ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/rfid-rc522.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/rfid-rc522.d" -MT"Core/Src/rfid-rc522.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/rfid-rc522.o"
+../Core/Src/main.c:3:10: fatal error: lcd_log.h: No such file or directory
+    3 | #include "lcd_log.h"
+      |          ^~~~~~~~~~~
+compilation terminated.
+make: *** [Core/Src/subdir.mk:37: Core/Src/main.o] Error 1
+make: *** Waiting for unfinished jobs....
+../Core/Src/rfid-rc522.c: In function 'handleError':
+../Core/Src/rfid-rc522.c:76:17: warning: implicit declaration of function 'BSP_LED_On' [-Wimplicit-function-declaration]
+   76 |                 BSP_LED_On(LED_RED);
+      |                 ^~~~~~~~~~
+../Core/Src/rfid-rc522.c:76:28: error: 'LED_RED' undeclared (first use in this function)
+   76 |                 BSP_LED_On(LED_RED);
+      |                            ^~~~~~~
+../Core/Src/rfid-rc522.c:76:28: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/rfid-rc522.c:78:17: warning: implicit declaration of function 'BSP_LED_Off' [-Wimplicit-function-declaration]
+   78 |                 BSP_LED_Off(LED_RED);
+      |                 ^~~~~~~~~~~
+../Core/Src/rfid-rc522.c: In function 'TM_MFRC522_ReadRegister':
+../Core/Src/rfid-rc522.c:108:17: warning: unused variable 'retval' [-Wunused-variable]
+  108 |         uint8_t retval = 0x00;
+      |                 ^~~~~~
+../Core/Src/rfid-rc522.c: In function 'TM_MFRC522_SelectTag':
+../Core/Src/rfid-rc522.c:377:17: warning: variable 'size' set but not used [-Wunused-but-set-variable]
+  377 |         uint8_t size;
+      |                 ^~~~
+../Core/Src/rfid-rc522.c: In function 'TM_MFRC522_CS_Write':
+../Core/Src/rfid-rc522.c:428:27: error: 'SPIx_CS_GPIO_PORT' undeclared (first use in this function)
+  428 |         HAL_GPIO_WritePin(SPIx_CS_GPIO_PORT, SPIx_CS_PIN, val);
+      |                           ^~~~~~~~~~~~~~~~~
+../Core/Src/rfid-rc522.c:428:46: error: 'SPIx_CS_PIN' undeclared (first use in this function)
+  428 |         HAL_GPIO_WritePin(SPIx_CS_GPIO_PORT, SPIx_CS_PIN, val);
+      |                                              ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/rfid-rc522.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+14:11:35 Build Failed. 7 errors, 4 warnings. (took 2s.58ms)
+

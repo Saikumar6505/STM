@@ -1,0 +1,10 @@
+15:08:25 **** Build of configuration Debug for project 7seg ****
+make -j8 all 
+arm-none-eabi-size  7seg.elf 
+   text	   data	    bss	    dec	    hex	filename
+   8548	     12	   1644	  10204	   27dc	7seg.elf
+Finished building: default.size.stdout
+ 
+
+15:08:27 Build Finished. 0 errors, 0 warnings. (took 2s.452ms)
+

@@ -1,0 +1,2 @@
+../Core/Src/sht25.c:12:7:SHT25_ReadTemperature	24	static
+../Core/Src/sht25.c:24:7:SHT25_ReadHumidity	24	static

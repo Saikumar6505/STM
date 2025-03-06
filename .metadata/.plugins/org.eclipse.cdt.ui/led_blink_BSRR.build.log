@@ -1,0 +1,10 @@
+15:10:04 **** Build of configuration Debug for project led_blink_BSRR ****
+make -j8 all 
+arm-none-eabi-size  led_blink_BSRR.elf 
+   text	   data	    bss	    dec	    hex	filename
+    960	     12	   1572	   2544	    9f0	led_blink_BSRR.elf
+Finished building: default.size.stdout
+ 
+
+15:10:06 Build Finished. 0 errors, 0 warnings. (took 2s.353ms)
+

@@ -1,0 +1,242 @@
+/* USER CODE BEGIN Header */
+/**
+  ******************************************************************************
+  * @file           : main.c
+  * @brief          : Main program body
+  ******************************************************************************
+  * @attention
+  *
+  * Copyright (c) 2023 STMicroelectronics.
+  * All rights reserved.
+  *
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
+  *
+  ******************************************************************************
+  */
+/* USER CODE END Header */
+
+/* Includes ------------------------------------------------------------------*/
+#include "main.h"
+
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+#define DBG_UART 1
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+UART_HandleTypeDef huart1;
+UART_HandleTypeDef huart2;
+
+/* USER CODE BEGIN PV */
+float temperature = 25.02;
+/* USER CODE END PV */
+
+/* Private function prototypes -----------------------------------------------*/
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+static void MX_USART1_UART_Init(void);
+static void MX_USART2_UART_Init(void);
+/* USER CODE BEGIN PFP */
+
+/* USER CODE END PFP */
+
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
+
+void WE10_Init(char *SSID, char *PASSWD) {
+    char buffer[128];
+
+    /********* CMD+RESET **********/
+    sprintf(&buffer[0], "CMD+RESET\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_Delay(1000); // Wait for a response
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000); // Debug output
+
+    /********* CMD+WIFIMODE=1 **********/
+    sprintf(&buffer[0], "CMD+WIFIMODE=1\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_Delay(1000); // Wait for a response
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000); // Debug output
+
+    HAL_Delay(2000); // Additional delay for stability
+
+    /********* CMD+CONTOAP=SSID,PASSWD **********/
+    sprintf(&buffer[0], "CMD+CONTOAP=%s,%s\r\n", SSID, PASSWD);
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 10000);
+    HAL_Delay(5000); // Increased delay for response
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 10000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 10000); // Debug output
+
+    /********* CMD?WIFI **********/
+    sprintf(&buffer[0], "CMD?WIFI\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 10000);
+    HAL_Delay(5000); // Wait for response
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 10000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 10000); // Debug output
+}
+
+void MQTT_Init() {
+    char buffer[128];
+
+    /********* CMD+MQTTNETCFG **********/
+    sprintf(&buffer[0], "CMD+MQTTNETCFG=dev.rightech.io,1883\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 10000);
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 10000);
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 10000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 10000); // Debug output
+
+    /********* CMD+MQTTCONCFG **********/
+    sprintf(&buffer[0], "CMD+MQTTCONCFG=3,mqtt-saikumarsunny222-gqwkbx,,,,,,,,,\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000); // Debug output
+
+    /********* CMD+MQTTSTART **********/
+    sprintf(&buffer[0], "CMD+MQTTSTART=1\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_Delay(5000);
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000); // Debug output
+
+    /********* CMD+MQTTSUB *********/
+    sprintf(&buffer[0], "CMD+MQTTSUB=base/relay/led1\r\n");
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000);
+    HAL_Delay(500);
+    HAL_UART_Receive(&huart1, (uint8_t*)buffer, sizeof(buffer), 1000);
+    buffer[sizeof(buffer) - 1] = '\0'; // Null-terminate
+    HAL_UART_Transmit(&huart2, (uint8_t*)buffer, strlen(buffer), 1000); // Debug output
+}
+
+void mqtt_data_send() {
+    char buffer[50];
+    sprintf(&buffer[0], "CMD+MQTTPUB=base/state/temperature,%.2f\r\n", temperature);
+    HAL_UART_Transmit(&huart1, (uint8_t*)buffer, strlen(buffer), 1000);
+    // Debug output
+    printf("%s", buffer);
+}
+
+/**
+  * @brief  The application entry point.
+  * @retval int
+  */
+int main(void) {
+    /* MCU Configuration--------------------------------------------------------*/
+    HAL_Init();
+    SystemClock_Config();
+    MX_GPIO_Init();
+    MX_USART1_UART_Init();
+    MX_USART2_UART_Init();
+
+    /* Initialize modules */
+    WE10_Init("VIVO", "12345678");
+    MQTT_Init();
+
+    /* Infinite loop */
+    while (1) {
+        // Your main loop code here
+    	mqtt_data_send();
+    	osDelay(1000);
+    }
+}
+
+/* Other functions remain unchanged... */
+
+void SystemClock_Config(void) {
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    __HAL_RCC_PWR_CLK_ENABLE();
+    __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+    RCC_OscInitStruct.HSIState = RCC_HSI_ON;
+    RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        Error_Handler();
+    }
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+    RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+    RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK) {
+        Error_Handler();
+    }
+}
+
+static void MX_GPIO_Init(void) {
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
+    __HAL_RCC_GPIOC_CLK_ENABLE();
+    __HAL_RCC_GPIOA_CLK_ENABLE();
+    __HAL_RCC_GPIOB_CLK_ENABLE();
+    HAL_GPIO_WritePin(GPIOB, GPIO_PIN_0, GPIO_PIN_RESET);
+    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+    GPIO_InitStruct.Pull = GPIO_NOPULL;
+    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+}
+
+static void MX_USART1_UART_Init(void) {
+    huart1.Instance = USART1;
+    huart1.Init.BaudRate = 115200;
+    huart1.Init.WordLength = UART_WORDLENGTH_8B;
+    huart1.Init.StopBits = UART_STOPBITS_1;
+    huart1.Init.Parity = UART_PARITY_NONE;
+    huart1.Init.Mode = UART_MODE_TX_RX;
+    huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+    huart1.Init.OverSampling = UART_OVERSAMPLING_16;
+    if (HAL_UART_Init(&huart1) != HAL_OK) {
+        Error_Handler();
+    }
+}
+
+static void MX_USART2_UART_Init(void) {
+    huart2.Instance = USART2;
+    huart2.Init.BaudRate = 115200;
+    huart2.Init.WordLength = UART_WORDLENGTH_8B;
+    huart2.Init.StopBits = UART_STOPBITS_1;
+    huart2.Init.Parity = UART_PARITY_NONE;
+    huart2.Init.Mode = UART_MODE_TX_RX;
+    huart2.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+    huart2.Init.OverSampling = UART_OVERSAMPLING_16;
+    if (HAL_UART_Init(&huart2) != HAL_OK) {
+        Error_Handler();
+    }
+}
+
+void Error_Handler(void) {
+    while (1) {
+        // Stay in this loop in case of an error
+    }
+}

@@ -1,0 +1,6 @@
+../Core/Src/we10.c:8:6:WE10_reset	136	static
+../Core/Src/we10.c:21:6:WE10_wifimode	136	static
+../Core/Src/we10.c:32:6:WE10_contoap	136	static
+../Core/Src/we10.c:43:6:MQTT_netcfg	136	static
+../Core/Src/we10.c:60:6:MQTT_start	136	static
+../Core/Src/we10.c:70:6:WE10_RestartInitialization	8	static

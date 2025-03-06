@@ -1,0 +1,171 @@
+16:53:48 **** Incremental Build of configuration Debug for project sht25_fsm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c:36:1: error: unknown type name 'osThreadId_t'; did you mean 'osThreadId'?
+   36 | osThreadId_t SendTaskHandle;
+      | ^~~~~~~~~~~~
+      | osThreadId
+../Core/Src/main.c:37:7: error: unknown type name 'osThreadAttr_t'
+   37 | const osThreadAttr_t SendTask_attributes = {
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:38:5: error: field name not in record or union initializer
+   38 |     .name = "SendTask",
+      |     ^
+../Core/Src/main.c:38:5: note: (near initialization for 'SendTask_attributes')
+../Core/Src/main.c:38:13: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   38 |     .name = "SendTask",
+      |             ^~~~~~~~~~
+../Core/Src/main.c:38:13: note: (near initialization for 'SendTask_attributes')
+../Core/Src/main.c:39:5: error: field name not in record or union initializer
+   39 |     .stack_size = 128 * 4,
+      |     ^
+../Core/Src/main.c:39:5: note: (near initialization for 'SendTask_attributes')
+../Core/Src/main.c:39:19: warning: excess elements in scalar initializer
+   39 |     .stack_size = 128 * 4,
+      |                   ^~~
+../Core/Src/main.c:39:19: note: (near initialization for 'SendTask_attributes')
+../Core/Src/main.c:40:5: error: field name not in record or union initializer
+   40 |     .priority = (osPriority_t) osPriorityNormal,
+      |     ^
+../Core/Src/main.c:40:5: note: (near initialization for 'SendTask_attributes')
+../Core/Src/main.c:40:18: error: 'osPriority_t' undeclared here (not in a function); did you mean 'osPriority'?
+   40 |     .priority = (osPriority_t) osPriorityNormal,
+      |                  ^~~~~~~~~~~~
+      |                  osPriority
+../Core/Src/main.c:40:17: warning: excess elements in scalar initializer
+   40 |     .priority = (osPriority_t) osPriorityNormal,
+      |                 ^
+../Core/Src/main.c:40:17: note: (near initialization for 'SendTask_attributes')
+../Core/Src/main.c:40:32: error: expected '}' before 'osPriorityNormal'
+   40 |     .priority = (osPriority_t) osPriorityNormal,
+      |                                ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:37:44: note: to match this '{'
+   37 | const osThreadAttr_t SendTask_attributes = {
+      |                                            ^
+../Core/Src/main.c:44:1: error: unknown type name 'osThreadId_t'; did you mean 'osThreadId'?
+   44 | osThreadId_t RecieveTaskHandle;
+      | ^~~~~~~~~~~~
+      | osThreadId
+../Core/Src/main.c:45:7: error: unknown type name 'osThreadAttr_t'
+   45 | const osThreadAttr_t RecieveTask_attributes = {
+      |       ^~~~~~~~~~~~~~
+../Core/Src/main.c:46:5: error: field name not in record or union initializer
+   46 |     .name = "RecieveTask",
+      |     ^
+../Core/Src/main.c:46:5: note: (near initialization for 'RecieveTask_attributes')
+../Core/Src/main.c:46:13: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   46 |     .name = "RecieveTask",
+      |             ^~~~~~~~~~~~~
+../Core/Src/main.c:46:13: note: (near initialization for 'RecieveTask_attributes')
+../Core/Src/main.c:47:5: error: field name not in record or union initializer
+   47 |     .stack_size = 128 * 4,
+      |     ^
+../Core/Src/main.c:47:5: note: (near initialization for 'RecieveTask_attributes')
+../Core/Src/main.c:47:19: warning: excess elements in scalar initializer
+   47 |     .stack_size = 128 * 4,
+      |                   ^~~
+../Core/Src/main.c:47:19: note: (near initialization for 'RecieveTask_attributes')
+../Core/Src/main.c:48:5: error: field name not in record or union initializer
+   48 |     .priority = (osPriority_t) osPriorityLow,
+      |     ^
+../Core/Src/main.c:48:5: note: (near initialization for 'RecieveTask_attributes')
+../Core/Src/main.c:48:17: warning: excess elements in scalar initializer
+   48 |     .priority = (osPriority_t) osPriorityLow,
+      |                 ^
+../Core/Src/main.c:48:17: note: (near initialization for 'RecieveTask_attributes')
+../Core/Src/main.c:48:32: error: expected '}' before 'osPriorityLow'
+   48 |     .priority = (osPriority_t) osPriorityLow,
+      |                                ^~~~~~~~~~~~~
+../Core/Src/main.c:45:47: note: to match this '{'
+   45 | const osThreadAttr_t RecieveTask_attributes = {
+      |                                               ^
+../Core/Src/main.c:52:1: error: unknown type name 'osMessageQId_t'; did you mean 'osMessageQId'?
+   52 | osMessageQId_t myQueueTempHandle;
+      | ^~~~~~~~~~~~~~
+      | osMessageQId
+../Core/Src/main.c:53:7: error: unknown type name 'osMessageQueueAttr_t'
+   53 | const osMessageQueueAttr_t myQueueTemp_attributes = {
+      |       ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:54:5: error: field name not in record or union initializer
+   54 |     .name = "myQueueTemp"
+      |     ^
+../Core/Src/main.c:54:5: note: (near initialization for 'myQueueTemp_attributes')
+../Core/Src/main.c:54:13: warning: initialization of 'int' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   54 |     .name = "myQueueTemp"
+      |             ^~~~~~~~~~~~~
+../Core/Src/main.c:54:13: note: (near initialization for 'myQueueTemp_attributes')
+../Core/Src/main.c: In function 'read_sensor_values':
+../Core/Src/main.c:91:49: error: lvalue required as unary '&' operand
+   91 |     HAL_I2C_Master_Transmit(&hi2c1, SHT25_ADDR, &SHT25_MEASURE_TEMP_CMD, 1, HAL_MAX_DELAY);
+      |                                                 ^
+../Core/Src/main.c:96:49: error: lvalue required as unary '&' operand
+   96 |     HAL_I2C_Master_Transmit(&hi2c1, SHT25_ADDR, &SHT25_MEASURE_HUM_CMD, 1, HAL_MAX_DELAY);
+      |                                                 ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:118:25: warning: implicit declaration of function 'osMessageQueueNew'; did you mean 'osMessageDelete'? [-Wimplicit-function-declaration]
+  118 |     myQueueTempHandle = osMessageQueueNew(256, sizeof(data), &myQueueTemp_attributes);
+      |                         ^~~~~~~~~~~~~~~~~
+      |                         osMessageDelete
+../Core/Src/main.c:119:22: warning: implicit declaration of function 'osThreadNew'; did you mean 'osThreadDef'? [-Wimplicit-function-declaration]
+  119 |     SendTaskHandle = osThreadNew(Send_Task, NULL, &SendTask_attributes);
+      |                      ^~~~~~~~~~~
+      |                      osThreadDef
+../Core/Src/main.c: In function 'Send_Task':
+../Core/Src/main.c:133:22: warning: passing argument 1 of 'osMessagePut' makes pointer from integer without a cast [-Wint-conversion]
+  133 |         osMessagePut(myQueueTempHandle, &DatatoSend, 0, 0);
+      |                      ^~~~~~~~~~~~~~~~~
+      |                      |
+      |                      int
+In file included from ../Core/Src/main.c:21:
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:800:37: note: expected 'osMessageQId' {aka 'struct QueueDefinition *'} but argument is of type 'int'
+  800 | osStatus osMessagePut (osMessageQId queue_id, uint32_t info, uint32_t millisec);
+      |                        ~~~~~~~~~~~~~^~~~~~~~
+../Core/Src/main.c:133:41: warning: passing argument 2 of 'osMessagePut' makes integer from pointer without a cast [-Wint-conversion]
+  133 |         osMessagePut(myQueueTempHandle, &DatatoSend, 0, 0);
+      |                                         ^~~~~~~~~~~
+      |                                         |
+      |                                         data *
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:800:56: note: expected 'uint32_t' {aka 'long unsigned int'} but argument is of type 'data *'
+  800 | osStatus osMessagePut (osMessageQId queue_id, uint32_t info, uint32_t millisec);
+      |                                               ~~~~~~~~~^~~~
+../Core/Src/main.c:133:9: error: too many arguments to function 'osMessagePut'
+  133 |         osMessagePut(myQueueTempHandle, &DatatoSend, 0, 0);
+      |         ^~~~~~~~~~~~
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:800:10: note: declared here
+  800 | osStatus osMessagePut (osMessageQId queue_id, uint32_t info, uint32_t millisec);
+      |          ^~~~~~~~~~~~
+../Core/Src/main.c: In function 'Recieve_Task':
+../Core/Src/main.c:141:22: warning: passing argument 1 of 'osMessageGet' makes pointer from integer without a cast [-Wint-conversion]
+  141 |         osMessageGet(myQueueTempHandle, &retvalue, NULL, osWaitForever);
+      |                      ^~~~~~~~~~~~~~~~~
+      |                      |
+      |                      int
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:807:36: note: expected 'osMessageQId' {aka 'struct QueueDefinition *'} but argument is of type 'int'
+  807 | osEvent osMessageGet (osMessageQId queue_id, uint32_t millisec);
+      |                       ~~~~~~~~~~~~~^~~~~~~~
+../Core/Src/main.c:141:41: warning: passing argument 2 of 'osMessageGet' makes integer from pointer without a cast [-Wint-conversion]
+  141 |         osMessageGet(myQueueTempHandle, &retvalue, NULL, osWaitForever);
+      |                                         ^~~~~~~~~
+      |                                         |
+      |                                         data *
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:807:55: note: expected 'uint32_t' {aka 'long unsigned int'} but argument is of type 'data *'
+  807 | osEvent osMessageGet (osMessageQId queue_id, uint32_t millisec);
+      |                                              ~~~~~~~~~^~~~~~~~
+../Core/Src/main.c:141:9: error: too many arguments to function 'osMessageGet'
+  141 |         osMessageGet(myQueueTempHandle, &retvalue, NULL, osWaitForever);
+      |         ^~~~~~~~~~~~
+../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h:807:9: note: declared here
+  807 | osEvent osMessageGet (osMessageQId queue_id, uint32_t millisec);
+      |         ^~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:484:6: error: conflicting types for 'Send_Task'; have 'void(const void *)'
+  484 | void Send_Task(void const * argument)
+      |      ^~~~~~~~~
+../Core/Src/main.c:127:6: note: previous definition of 'Send_Task' with type 'void(void *)'
+  127 | void Send_Task(void *argument) {
+      |      ^~~~~~~~~
+make: *** [Core/Src/subdir.mk:40: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+16:53:50 Build Failed. 22 errors, 13 warnings. (took 1s.703ms)
+

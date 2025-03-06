@@ -1,0 +1,10 @@
+15:10:38 **** Build of configuration Debug for project test_swv ****
+make -j8 all 
+arm-none-eabi-size  test_swv.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3532	     92	   1900	   5524	   1594	test_swv.elf
+Finished building: default.size.stdout
+ 
+
+15:10:40 Build Finished. 0 errors, 0 warnings. (took 2s.143ms)
+

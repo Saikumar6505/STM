@@ -1,0 +1,13 @@
+/*
+ * sht25.h
+ *
+ *  Created on: Oct 11, 2024
+ *      Author: dinesh
+ */
+
+#ifndef INC_SHT25_H_
+#define INC_SHT25_H_
+
+
+
+#endif /* INC_SHT25_H_ */

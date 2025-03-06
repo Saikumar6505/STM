@@ -1,0 +1,63 @@
+/*
+ * lcd_i2c.h
+ *
+ *  Created on: Oct 9, 2024
+ *      Author: dinesh
+ */
+
+#ifndef INC_LCD_I2C_H_
+#define INC_LCD_I2C_H_
+
+#include "stm32f4xx_hal.h"
+
+
+// LCD commands
+#define LCD_CLEARDISPLAY 0x01
+#define LCD_RETURNHOME 0x02
+#define LCD_ENTRYMODESET 0x04
+#define LCD_DISPLAYCONTROL 0x08
+#define LCD_CURSORSHIFT 0x10
+#define LCD_FUNCTIONSET 0x20
+#define LCD_SETCGRAMADDR 0x40
+#define LCD_SETDDRAMADDR 0x80
+
+// Flags for display entry mode
+#define LCD_ENTRYRIGHT 0x00
+#define LCD_ENTRYLEFT 0x02
+#define LCD_ENTRYSHIFTINCREMENT 0x01
+#define LCD_ENTRYSHIFTDECREMENT 0x00
+
+// Flags for display on/off control
+#define LCD_DISPLAYON 0x04
+#define LCD_DISPLAYOFF 0x00
+#define LCD_CURSORON 0x02
+#define LCD_CURSOROFF 0x00
+#define LCD_BLINKON 0x01
+#define LCD_BLINKOFF 0x00
+
+// Flags for display/cursor shift
+#define LCD_DISPLAYMOVE 0x08
+#define LCD_CURSORMOVE 0x00
+#define LCD_MOVERIGHT 0x04
+#define LCD_MOVELEFT 0x00
+
+// Flags for function set
+#define LCD_8BITMODE 0x10
+#define LCD_4BITMODE 0x00
+#define LCD_2LINE 0x08
+#define LCD_1LINE 0x00
+#define LCD_5x10DOTS 0x04
+#define LCD_5x8DOTS 0x00
+
+// I2C address of the LCD
+#define LCD_I2C_ADDRESS 0x27 << 1
+
+// Function prototypes
+void lcd_init(I2C_HandleTypeDef *hi2c);
+void lcd_send_cmd(I2C_HandleTypeDef *hi2c, char cmd);
+void lcd_send_data(I2C_HandleTypeDef *hi2c, char data);
+void lcd_send_string(I2C_HandleTypeDef *hi2c, char *str);
+void lcd_clear(I2C_HandleTypeDef *hi2c);
+void lcd_set_cursor(I2C_HandleTypeDef *hi2c, uint8_t row, uint8_t col);
+
+#endif /* INC_LCD_I2C_H_ */

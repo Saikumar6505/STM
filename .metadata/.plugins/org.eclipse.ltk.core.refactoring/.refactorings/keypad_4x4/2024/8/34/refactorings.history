@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;keypad_4x4/Core/Inc/keypad.c&apos; to &apos;keypad.h&apos;" description="Rename resource &apos;keypad.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Core/Inc/keypad.c" name="keypad.h" stamp="1724232382901" updateReferences="true"/>
+</session>

@@ -1,0 +1,10 @@
+16:18:04 **** Incremental Build of configuration Debug for project test_openocd ****
+make -j8 all 
+arm-none-eabi-size  test_openocd.elf 
+   text	   data	    bss	    dec	    hex	filename
+   3452	     92	   1900	   5444	   1544	test_openocd.elf
+Finished building: default.size.stdout
+ 
+
+16:18:05 Build Finished. 0 errors, 0 warnings. (took 677ms)
+

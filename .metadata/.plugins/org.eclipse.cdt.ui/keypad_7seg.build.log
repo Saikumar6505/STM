@@ -1,0 +1,10 @@
+15:09:52 **** Build of configuration Debug for project keypad_7seg ****
+make -j8 all 
+arm-none-eabi-size  keypad_7seg.elf 
+   text	   data	    bss	    dec	    hex	filename
+   2688	      4	   1572	   4264	   10a8	keypad_7seg.elf
+Finished building: default.size.stdout
+ 
+
+15:09:54 Build Finished. 0 errors, 0 warnings. (took 1s.910ms)
+

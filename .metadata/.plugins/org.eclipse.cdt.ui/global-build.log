@@ -1,0 +1,63 @@
+11:41:04 **** Incremental Build of configuration Debug for project fsm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/we10.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/we10.d" -MT"Core/Src/we10.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/we10.o"
+arm-none-eabi-gcc -o "fsm.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dinesh/STM32CubeIDE/workspace_1.16.0/fsm/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="fsm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: fsm.elf
+ 
+arm-none-eabi-size  fsm.elf 
+arm-none-eabi-objdump -h -S fsm.elf  > "fsm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45940	    472	  18600	  65012	   fdf4	fsm.elf
+Finished building: default.size.stdout
+ 
+Finished building: fsm.list
+ 
+11:41:08 **** Incremental Build of configuration Debug for project fsm ****
+make -j8 all 
+arm-none-eabi-size  fsm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45940	    472	  18600	  65012	   fdf4	fsm.elf
+Finished building: default.size.stdout
+ 
+11:45:08 **** Incremental Build of configuration Debug for project fsm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/we10.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/we10.d" -MT"Core/Src/we10.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/we10.o"
+arm-none-eabi-gcc -o "fsm.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dinesh/STM32CubeIDE/workspace_1.16.0/fsm/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="fsm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: fsm.elf
+ 
+arm-none-eabi-size  fsm.elf 
+arm-none-eabi-objdump -h -S fsm.elf  > "fsm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45996	    472	  18600	  65068	   fe2c	fsm.elf
+Finished building: default.size.stdout
+ 
+Finished building: fsm.list
+ 
+11:47:21 **** Incremental Build of configuration Debug for project fsm ****
+make -j8 all 
+arm-none-eabi-size  fsm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45996	    472	  18600	  65068	   fe2c	fsm.elf
+Finished building: default.size.stdout
+ 
+11:48:31 **** Incremental Build of configuration Debug for project fsm ****
+make -j8 all 
+arm-none-eabi-size  fsm.elf 
+   text	   data	    bss	    dec	    hex	filename
+  45996	    472	  18600	  65068	   fe2c	fsm.elf
+Finished building: default.size.stdout
+ 
+11:51:32 **** Incremental Build of configuration Debug for project fsm ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/we10.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../Middlewares/Third_Party/FreeRTOS/Source/include -I../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/we10.d" -MT"Core/Src/we10.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/we10.o"
+arm-none-eabi-gcc -o "fsm.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/dinesh/STM32CubeIDE/workspace_1.16.0/fsm/STM32F411RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="fsm.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: fsm.elf
+ 
+arm-none-eabi-size  fsm.elf 
+arm-none-eabi-objdump -h -S fsm.elf  > "fsm.list"
+   text	   data	    bss	    dec	    hex	filename
+  45460	    472	  18600	  64532	   fc14	fsm.elf
+Finished building: default.size.stdout
+ 
+Finished building: fsm.list
+ 

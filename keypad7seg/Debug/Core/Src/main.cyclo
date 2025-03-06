@@ -1,0 +1,5 @@
+../Core/Src/main.c:44:5:main	1
+../Core/Src/main.c:54:6:init	1
+../Core/Src/main.c:72:6:keypad_svnseg_interfacing	5
+../Core/Src/main.c:100:6:turn_on_svnseg	7
+../Core/Src/main.c:134:6:delay	2

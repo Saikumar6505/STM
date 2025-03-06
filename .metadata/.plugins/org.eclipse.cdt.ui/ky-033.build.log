@@ -1,0 +1,10 @@
+15:09:56 **** Build of configuration Debug for project ky-033 ****
+make -j8 all 
+arm-none-eabi-size  ky-033.elf 
+   text	   data	    bss	    dec	    hex	filename
+  11040	     12	   1716	  12768	   31e0	ky-033.elf
+Finished building: default.size.stdout
+ 
+
+15:09:58 Build Finished. 0 errors, 0 warnings. (took 1s.855ms)
+
